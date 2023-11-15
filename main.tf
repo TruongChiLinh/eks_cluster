@@ -76,7 +76,12 @@ resource "aws_security_group" "eks_cluster_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+    ingress {
+    from_port   = 1200
+    to_port     = 1200
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   tags = {
     Name = "eks-cluster-sg"
   }
